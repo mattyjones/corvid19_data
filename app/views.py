@@ -1,14 +1,7 @@
 """ API and internal endpoints """
-# import json
-# import time
 from flask import render_template, request
-# import config
 
 from app import app, git , data
-# from sa_survey import defect_dojo as dd
- #, cache
-# from sa_survey import survey as sur
-# from sa_survey import postgresql as pg
 
 
 DEBUG = False
