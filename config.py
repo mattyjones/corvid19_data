@@ -1,5 +1,5 @@
 # TODO move these urls to github.com and setup the auth
-COVID_19_REPO = "git@github.com:CSSEGISandData/COVID-19.git"
+COVID_19_REPO = "https://github.com/CSSEGISandData/COVID-19.git"
 
 PROJECT_DIR = "/tmp"
 COVID_19_DIR = PROJECT_DIR + "/data/"
