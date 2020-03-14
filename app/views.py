@@ -1,30 +1,30 @@
 """ API and internal endpoints """
 from flask import render_template, request
-
 from app import app, git , data
-
 
 DEBUG = False
 
 
 @app.route('/')
 def main():
-    """Generate the homepage"""
+    """Generate a blank homepage"""
 
-    return "hello World"
+    return ""
 
 @app.route('/update_data')
 def update_data():
-    """Pull a new copy of the repo, generate the dict from the yaml, and push it to the cache as a json string"""
+    """Pull an updated copy of the repo and create a json blob of the requested data"""
 
+    # pull from the master branch
     repo_version = "master"
 
-    # pull the needed repos
+    # clone the repo
     git.repo_setup(repo_version)
 
-    # convert the yaml to csv and write it to a tmp file
+    # convert the csv to json
     data_json = data.generate_data()
 
+    # cleanup your mess when you are through
     git.cleanup()
 
     return data_json

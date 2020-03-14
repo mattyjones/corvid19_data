@@ -7,7 +7,6 @@ import config
 
 DEBUG = False
 
-
 def define_version(repo, version):
     """If a version is not defined then grab the latest tag."""
     if version == "":
@@ -19,7 +18,7 @@ def define_version(repo, version):
 
 
 def clone_repo(repo_name, repo_version, repo_location):
-    """Clone the needed repo and checkout the desired branch"""
+    """Clone a repo and checkout the desired branch"""
 
     Repo.clone_from(repo_name, repo_location)
     repo = Git(repo_location)
@@ -34,11 +33,11 @@ def clone_repo(repo_name, repo_version, repo_location):
 
 
 def repo_setup(data_version):
-    """ Setup the repos needed to update the controls spreadsheet.
+    """ Setup the repos.
     The version can either be an empty string which will force the latest tag to be pulled, a branch which will be
     checked out, or tag that will then get checked out. At a low level git considers branches and tags identical
     and treats them the same.
-    Only SSH is currently supported for cloning repos.
+    Only HTTPS is currently supported for cloning repos.
     """
 
     # clean up the directories if they exist
@@ -49,8 +48,7 @@ def repo_setup(data_version):
     clone_repo(config.COVID_19_REPO, data_version, config.COVID_19_DIR)
 
 def cleanup():
-    """ Cleanup after yourself
-    """
+    """Cleanup after yourself"""
     for directory in config.dir_list:
         if os.path.exists(directory):
             shutil.rmtree(directory)

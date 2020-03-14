@@ -13,7 +13,3 @@ You can run the development server locally use `python run.py`. The debug flag i
 
 
 ## Troubleshooting
-
-~~**Address already in use**~~
- 
-~~ The auth is starting a server and the server is already running locally. The solution is to stop the development server, then run `python survey.py` to generate the necessary creds. At this point you can start the development server.~~

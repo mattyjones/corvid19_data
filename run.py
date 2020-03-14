@@ -3,7 +3,7 @@ import config
 
 DEBUG = True
 
-if DEBUG:
+if DEBUG or config.DEBUG:
     RUN_DEBUG = True
 else:
     RUN_DEBUG = False
